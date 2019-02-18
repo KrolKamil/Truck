@@ -32,7 +32,16 @@ $app->get('/transits', function(Request $request, Response $response){
 
 $app->post('/transits', function (Request $request, Response $response)
 {
-    //$data = $request->getParsedBody();
+    //some kind of filter needed i guess ?
+    //$sourceAddress, $destinationAddress, $price, $date
+    $data = $request->getParsedBody();
+    $sourceAddress = $data['source_address'];
+    $destinationAddress = $data['destination_address'];
+    $price = $data['price'];
+    $date = $data['date'];
+
+    $myTransit = new Transit($this->db);
+    $myTransit->addTransit($sourceAddress,$destinationAddress, $price, $date);
 });
 
 

@@ -22,8 +22,8 @@ class Transit
 
     public function addTransit($sourceAddress, $destinationAddress, $price, $date)
     {
-        $sql = "INSERT INTO transit ('id', 'source_address', 'destination_address', 'price', 'date')
-                VALUES ('', :source_address, :destination_address, :destination_address, :price, :date)";
+        $sql = "INSERT INTO transit (id, source_address, destination_address, price, date)
+                VALUES ('', :source_address, :destination_address, :price, :date)";
 
         $stmt = $this->db->prepare($sql);
 
