@@ -3,23 +3,6 @@
 use Slim\Http\Request;
 use Slim\Http\Response;
 
-// Routes
-
-/*
- *
- *  $data = $request->getParsedBody();
-    $task_data = [];
-    $task_data['name'] = filter_var($data['name'], FILTER_SANITIZE_STRING);
-    if($task_data['name'] !="")
-    {
-        $task = new TaskEntity($task_data);
-        $task_mapper = new TaskMapper($this->db);
-        $task_mapper->addTask($task);
-    }
-    $response = $response->withRedirect($this->router->pathFor('task-show'));
-    return $response;
- */
-
 $app->get('/transits', function(Request $request, Response $response){
     $this->logger->info('fetch all data');
     $transit = new Transit($this->db);
@@ -42,6 +25,16 @@ $app->post('/transits', function (Request $request, Response $response)
 
     $myTransit = new Transit($this->db);
     $myTransit->addTransit($sourceAddress,$destinationAddress, $price, $date);
+});
+
+$app->get('/reports/range', function (Request $request, Response $response)
+{
+    $args = $request->getQueryParams();
+    $myMap = new Map();
+    $source = $myMap->getCoord($args['source_address']);
+    $destination = $myMap->getCoord($args['destination_address']);
+    $distance = $myMap->getDistance($source, $destination);
+
 });
 
 
