@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="24d5adf1-2fcb-4079-89a4-8cc65728834b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Transit.php" afterPath="$PROJECT_DIR$/classes/Transit.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrations/20190217191732_init.php" afterPath="$PROJECT_DIR$/db/migrations/20190217191732_init.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/seeds/InitSeeder.php" afterPath="$PROJECT_DIR$/db/seeds/InitSeeder.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes.php" afterPath="$PROJECT_DIR$/src/routes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Map.php" afterPath="$PROJECT_DIR$/classes/Map.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -38,8 +34,8 @@
       <file leaf-file-name="Map.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/classes/Map.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="18" column="8" lean-forward="true" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="34" />
+            <state relative-caret-position="400">
+              <caret line="20" column="68" lean-forward="false" selection-start-line="20" selection-start-column="68" selection-end-line="20" selection-end-column="68" />
               <folding />
             </state>
           </provider>
@@ -70,11 +66,11 @@
         <option value="$PROJECT_DIR$/src/dependencies.php" />
         <option value="$PROJECT_DIR$/templates/transits.phtml" />
         <option value="$PROJECT_DIR$/templates/index.phtml" />
-        <option value="$PROJECT_DIR$/classes/Map.php" />
         <option value="$PROJECT_DIR$/db/migrations/20190217191732_init.php" />
         <option value="$PROJECT_DIR$/db/seeds/InitSeeder.php" />
         <option value="$PROJECT_DIR$/classes/Transit.php" />
         <option value="$PROJECT_DIR$/src/routes.php" />
+        <option value="$PROJECT_DIR$/classes/Map.php" />
       </list>
     </option>
   </component>
@@ -170,7 +166,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29024000" />
+    <option name="totallyTimeSpent" value="29843000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="960" height="1040" extended-state="0" />
@@ -471,8 +467,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Map.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="18" column="8" lean-forward="true" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="34" />
+        <state relative-caret-position="400">
+          <caret line="20" column="68" lean-forward="false" selection-start-line="20" selection-start-column="68" selection-end-line="20" selection-end-column="68" />
           <folding />
         </state>
       </provider>
