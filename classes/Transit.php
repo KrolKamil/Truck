@@ -20,10 +20,10 @@ class Transit
         return $data;
     }
 
-    public function addTransit($sourceAddress, $destinationAddress, $price, $date)
+    public function addTransit($sourceAddress, $destinationAddress, $price, $distance, $date)
     {
-        $sql = "INSERT INTO transit (id, source_address, destination_address, price, date)
-                VALUES ('', :source_address, :destination_address, :price, :date)";
+        $sql = "INSERT INTO transit (id, source_address, destination_address, price, distance, date)
+                VALUES ('', :source_address, :destination_address, :price, :distance, :date)";
 
         $stmt = $this->db->prepare($sql);
 
@@ -31,6 +31,7 @@ class Transit
             "source_address" => $sourceAddress,
             "destination_address" => $destinationAddress,
             "price" => $price,
+            "distance" => $distance,
             "date" => $date
         ]);
         if(!$result) {

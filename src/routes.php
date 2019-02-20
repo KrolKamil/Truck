@@ -15,6 +15,7 @@ $app->get('/transits', function(Request $request, Response $response){
 
 $app->post('/transits', function (Request $request, Response $response)
 {
+    //die(var_dump("ELO"));
     //some kind of filter needed i guess ?
     //$sourceAddress, $destinationAddress, $price, $date
     $data = $request->getParsedBody();
@@ -23,8 +24,13 @@ $app->post('/transits', function (Request $request, Response $response)
     $price = $data['price'];
     $date = $data['date'];
 
+    $myMap = new Map();
+    $sourceCoord = $myMap->getCoord($sourceAddress);
+    $destinationCoord = $myMap->getCoord($destinationAddress);
+    $distance = $myMap->getDistance($sourceCoord,$destinationCoord);
+
     $myTransit = new Transit($this->db);
-    $myTransit->addTransit($sourceAddress,$destinationAddress, $price, $date);
+    $myTransit->addTransit($sourceAddress,$destinationAddress, $price, $distance, $date);
 });
 
 $app->get('/reports/range', function (Request $request, Response $response)

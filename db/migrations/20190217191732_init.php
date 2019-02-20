@@ -38,6 +38,7 @@ class Init extends AbstractMigration
             ->addColumn('destination_address', 'string',
                 ['limit' => 128])
             ->addColumn('price', 'integer')
+            ->addColumn('distance', 'float')
             ->addColumn('date', 'datetime')
             ->create();
     }
