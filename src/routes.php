@@ -36,11 +36,15 @@ $app->post('/transits', function (Request $request, Response $response)
 $app->get('/reports/range', function (Request $request, Response $response)
 {
     $args = $request->getQueryParams();
-    $myMap = new Map();
-    $source = $myMap->getCoord($args['source_address']);
-    $destination = $myMap->getCoord($args['destination_address']);
-    $distance = $myMap->getDistance($source, $destination);
 
+    $startDate = $args['start_date'];
+
+    $endDate = $args['end_date'];
+    $myTransit = new Transit($this->db);
+    $results = $myTransit->getReport($startDate, $endDate);
+    //die(var_dump($results));
+    $response = $this->view->render($response,'transits.phtml',['transits' => $results]);
+    return $response;
 });
 
 

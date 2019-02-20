@@ -22,5 +22,4 @@ class Map
 
         return $distance;
     }
-
 }
