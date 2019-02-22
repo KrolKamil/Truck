@@ -7,17 +7,12 @@ $app->get('/transits', function(Request $request, Response $response){
     $this->logger->info('fetch all data');
     $transit = new Transit($this->db);
     $data = $transit->getTransits();
-    $response = $this->view->render($response,'transits.phtml',['transits' => $data]);
-    //die(var_dump($data));
-
+    $response = $this->view->render($response,'endpoint.phtml',['results' => $data]);
     return $response;
 })->setName('transits');
 
 $app->post('/transits', function (Request $request, Response $response)
 {
-    //die(var_dump("ELO"));
-    //some kind of filter needed i guess ?
-    //$sourceAddress, $destinationAddress, $price, $date
     $data = $request->getParsedBody();
     $sourceAddress = $data['source_address'];
     $destinationAddress = $data['destination_address'];
@@ -36,21 +31,19 @@ $app->post('/transits', function (Request $request, Response $response)
 $app->get('/reports/range', function (Request $request, Response $response)
 {
     $args = $request->getQueryParams();
-
     $startDate = $args['start_date'];
-
     $endDate = $args['end_date'];
     $myTransit = new Transit($this->db);
     $results = $myTransit->getReport($startDate, $endDate);
-    //die(var_dump($results));
-    $response = $this->view->render($response,'transits.phtml',['transits' => $results]);
+
+    $response = $this->view->render($response,'endpoint.phtml',['results' => $results]);
     return $response;
 });
 
 $app->get('/reports/monthly', function(Request $request, Response $response){
     $myTransit = new Transit($this->db);
     $results = $myTransit->getMonthlyReport();
-    $response = $this->view->render($response, 'transits.phtml', ['transits' => $results]);
+    $response = $this->view->render($response, 'endpoint.phtml', ['results' => $results]);
     return $response;
 });
 
