@@ -27,6 +27,7 @@ class InitSeeder extends AbstractSeed
             'source_address' => 'ul. Zakręt 8, Poznań',
             'destination_address' => 'Złota 44, Warszawa',
             'price' => 450,
+            'distance' => 20.1,
             "date" => date('2018-03-15')
         ];
 
