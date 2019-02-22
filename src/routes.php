@@ -47,6 +47,13 @@ $app->get('/reports/range', function (Request $request, Response $response)
     return $response;
 });
 
+$app->get('/reports/monthly', function(Request $request, Response $response){
+    $myTransit = new Transit($this->db);
+    $results = $myTransit->getMonthlyReport();
+    $response = $this->view->render($response, 'transits.phtml', ['transits' => $results]);
+    return $response;
+});
+
 
 $app->get('/[{name}]', function (Request $request, Response $response, array $args) {
     // Sample log message
