@@ -3,16 +3,6 @@
 use Slim\Http\Request;
 use Slim\Http\Response;
 
-/*
-$app->get('/transits', function(Request $request, Response $response){
-    $this->logger->info('fetch all data');
-    $transit = new Transit($this->db);
-    $data = $transit->getTransits();
-    $response = $this->view->render($response,'endpoint.phtml',['results' => $data]);
-    return $response;
-})->setName('transits');
-*/
-
 $app->post('/transits', function (Request $request, Response $response)
 {
     $data = $request->getParsedBody();
@@ -52,13 +42,3 @@ $app->get('/reports/monthly', function(Request $request, Response $response){
     $response = $this->view->render($response, 'endpoint.phtml', ['results' => $results]);
     return $response;
 });
-
-/*
-$app->get('/[{name}]', function (Request $request, Response $response, array $args) {
-    // Sample log message
-    $this->logger->info("Slim-Skeleton '/' route");
-
-    // Render index view
-    return $this->renderer->render($response, 'index.phtml', $args);
-});
-*/

@@ -40,7 +40,11 @@ class Transit
 
     public function getReport($startDate, $endDate)
     {
-        $sql = "SELECT SUM(price) AS total_distance, SUM(distance) AS total_price FROM transit WHERE date BETWEEN :start_date AND :end_date";
+        $sql = "SELECT 
+                ROUND(SUM(distance), 1) AS total_distance,
+                ROUND(SUM(price),2) AS total_price
+                FROM transit 
+                WHERE date BETWEEN :start_date AND :end_date";
         $stmt = $this->db->prepare($sql);
         $stmt->execute([
            "start_date" => $startDate,
@@ -58,8 +62,14 @@ class Transit
             $startDate = $date["year"] . '-' . $date["mon"] . '-1';
             $endDate = $date["year"] . '-' . $date["mon"] . '-' . ($date['mday'] -1);
 
-            $sql = "SELECT date AS date, SUM(distance) AS total_distance, AVG(distance) AS avg_distance, AVG(price) AS avg_price FROM transit WHERE
-            date BETWEEN :start_date AND :end_date GROUP BY date";
+
+            $sql = "SELECT date AS date,
+                 ROUND(SUM(distance),1) AS total_distance,
+                 ROUND(AVG(distance),1) AS avg_distance,
+                 ROUND(AVG(price),2) AS avg_price
+                 FROM transit WHERE
+                 date BETWEEN :start_date AND :end_date GROUP BY date";
+
             $stmt = $this->db->prepare($sql);
             $stmt->execute([
                "start_date" => $startDate,
