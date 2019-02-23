@@ -45,10 +45,9 @@ $app->get('/reports/range', function (Request $request, Response $response)
 $app->get('/reports/monthly', function(Request $request, Response $response){
     $myTransit = new Transit($this->db);
     $results = $myTransit->getMonthlyReport();
-    //die(var_dump($results));
 
-    $myTimeTypeControl = new TimeTypeControl($results);
-    $results = $myTimeTypeControl->getMonthDay();
+    $myTimeRefactor = new TimeRefactor($results);
+    $results = $myTimeRefactor->getMonthDay();
 
     $response = $this->view->render($response, 'endpoint.phtml', ['results' => $results]);
     return $response;

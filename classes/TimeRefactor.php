@@ -1,6 +1,6 @@
 <?php
 
-class TimeTypeControl
+class TimeRefactor
 {
     public $data;
 
