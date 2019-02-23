@@ -3,6 +3,7 @@
 use Slim\Http\Request;
 use Slim\Http\Response;
 
+/*
 $app->get('/transits', function(Request $request, Response $response){
     $this->logger->info('fetch all data');
     $transit = new Transit($this->db);
@@ -10,6 +11,7 @@ $app->get('/transits', function(Request $request, Response $response){
     $response = $this->view->render($response,'endpoint.phtml',['results' => $data]);
     return $response;
 })->setName('transits');
+*/
 
 $app->post('/transits', function (Request $request, Response $response)
 {
@@ -43,11 +45,16 @@ $app->get('/reports/range', function (Request $request, Response $response)
 $app->get('/reports/monthly', function(Request $request, Response $response){
     $myTransit = new Transit($this->db);
     $results = $myTransit->getMonthlyReport();
+    //die(var_dump($results));
+
+    $myTimeTypeControl = new TimeTypeControl($results);
+    $results = $myTimeTypeControl->getMonthDay();
+
     $response = $this->view->render($response, 'endpoint.phtml', ['results' => $results]);
     return $response;
 });
 
-
+/*
 $app->get('/[{name}]', function (Request $request, Response $response, array $args) {
     // Sample log message
     $this->logger->info("Slim-Skeleton '/' route");
@@ -55,3 +62,4 @@ $app->get('/[{name}]', function (Request $request, Response $response, array $ar
     // Render index view
     return $this->renderer->render($response, 'index.phtml', $args);
 });
+*/
